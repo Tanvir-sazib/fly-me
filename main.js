@@ -5,7 +5,7 @@ const firstClassMinusButton = document.querySelector(".first-class-minus");
 const economyPlusButton = document.querySelector(".economy-plus");
 const economyMinusButton = document.querySelector(".economy-minus");
 const bookButton = document.querySelector(".book-button");
-let economyPrice = 0; let FirstClassPrice = 0;  //THIS VARIABLES ARE FOR CALCULATING TOTAL,SUB-TOTAL,TAX
+let economyPrice = 0; let firstClassPrice = 0;  //THIS VARIABLES ARE FOR CALCULATING TOTAL,SUB-TOTAL,TAX
 
 firstClassPlusButton.addEventListener("click", () => {
     firstClassButtonController(true);
@@ -25,7 +25,7 @@ economyMinusButton.addEventListener("click", () => {
 
 });
 
-/////////////BUTTON CONTROLER FUNCTIOn FOR ECONOMY TICKET////////////////
+/////////////BUTTON CONTROLER FUNCTION FOR ECONOMY TICKET////////////////
 function economyButtonController(isIncrease) {
     const economyQuantity = document.querySelector(".economy-class-quantity").value;
     const economyTicketPrice = 100;
@@ -35,12 +35,12 @@ function economyButtonController(isIncrease) {
     document.querySelector(".economy-class-quantity").value = update.increasedQuantiy;
     outputTotal();
 };
-/////////////BUTTON CONTROLER FUNCTIOn FOR FIRST CLASS TICKET////////////////
+/////////////BUTTON CONTROLER FUNCTION FOR FIRST CLASS TICKET////////////////
 function firstClassButtonController(isIncrease) {
     const firstClassQuantity = document.querySelector(".first-class-quantity").value;
     const firstClassTicketPrice = 150;
     const update = changeHandler(firstClassQuantity, firstClassTicketPrice, isIncrease);
-    FirstClassPrice = update.increasedPrice;
+    firstClassPrice = update.increasedPrice;
     document.querySelector(".first-class-sit-quantity").innerHTML = update.increasedQuantiy;    //for bonus section
     document.querySelector(".first-class-quantity").value = update.increasedQuantiy;
     outputTotal();
@@ -94,7 +94,7 @@ function changeHandler(quantity, ticketPrice, isIncrease) {
 };
 
 function calculate() {
-    const subTotal = economyPrice + FirstClassPrice;
+    const subTotal = economyPrice + firstClassPrice;
     const tax = subTotal * .01;
     const total = subTotal + tax;
     return {
